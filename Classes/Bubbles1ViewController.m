@@ -75,15 +75,23 @@
 - (void)handleTapFrom:(UITapGestureRecognizer *)recognizer {
 	CGPoint location = [recognizer locationInView:self.view];
 	
-	CGRect rect = CGRectMake(location.x - 40, 
-		location.y - 40, 80.0f, 80.0f);
-	UIImageView *image = [[UIImageView alloc] 
-		initWithFrame:rect];
-	[image setImage:[UIImage imageNamed:@"bubble.png"]];
-	
-	[self.view addSubview:image];
-	
-	[image release];
+    UIView *hitView = [self.view hitTest:location withEvent:nil];
+    if ([hitView isKindOfClass:[UIImageView class]]) {
+        [(UIImageView *)hitView setImage:[UIImage imageNamed:@"popped.png"]];
+    }
+    else
+    {    
+        CGRect rect = CGRectMake(location.x - 40, 
+            location.y - 40, 80.0f, 80.0f);
+        UIImageView *image = [[UIImageView alloc] 
+            initWithFrame:rect];
+        [image setImage:[UIImage imageNamed:@"bubble.png"]];
+        [image setUserInteractionEnabled:YES];
+        
+        [self.view addSubview:image];
+        
+        [image release];
+    }
 }
 // END:handleTapFrom
 
