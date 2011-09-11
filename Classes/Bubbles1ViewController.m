@@ -30,8 +30,6 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-// START:viewDidLoad
-// START:viewDidLoad2
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
@@ -39,17 +37,28 @@
 		[[UITapGestureRecognizer alloc] 
 		 initWithTarget:self 
 		 action:@selector(handleTapFrom:)];
-// END:viewDidLoad2
-// START_HIGHLIGHT	
+
 	[tapRecognizer setNumberOfTapsRequired:1];
 	[self.view addGestureRecognizer:tapRecognizer];
 	[tapRecognizer release];
-// END_HIGHLIGHT	
-// START:viewDidLoad2
+    
+    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
+    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeRecognizer];
+    [swipeRecognizer release];
 }
-// END:viewDidLoad2
-// END:viewDidLoad
 
+- (void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
+    for (UIView *subview in [self.view subviews]) {
+        [subview removeFromSuperview];
+    }
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.75];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+    [UIView commitAnimations];
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
