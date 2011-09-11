@@ -7,6 +7,7 @@
 //
 
 #import "Bubbles1ViewController.h"
+#import "DeleteGestureRecognizer.h"
 
 @implementation Bubbles1ViewController
 
@@ -46,6 +47,10 @@
     swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeRecognizer];
     [swipeRecognizer release];
+    
+    DeleteGestureRecognizer *deleteRecognizer = [[DeleteGestureRecognizer alloc] initWithTarget:self action:@selector(handleDeleteFrom:)];
+    [self.view addGestureRecognizer:deleteRecognizer];
+    [deleteRecognizer release];
 }
 
 - (void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
@@ -58,6 +63,10 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
     [UIView commitAnimations];
+}
+
+-(void)handleDeleteFrom:(DeleteGestureRecognizer *)recognizer {
+    [recognizer.viewToDelete removeFromSuperview];
 }
 
 // Override to allow orientations other than the default portrait orientation.
