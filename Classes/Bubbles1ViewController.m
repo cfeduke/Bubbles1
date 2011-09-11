@@ -97,12 +97,22 @@
         [image setImage:[UIImage imageNamed:@"bubble.png"]];
         [image setUserInteractionEnabled:YES];
         
+        UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchFrom:)];
+        [image addGestureRecognizer:pinchRecognizer];
+        [pinchRecognizer release];
+        
         [self.view addSubview:image];
         
         [image release];
     }
 }
 // END:handleTapFrom
+
+-(void)handlePinchFrom:(UIPinchGestureRecognizer *)recognizer {
+    CGFloat scale = [recognizer scale];
+    CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
+    recognizer.view.transform = transform;
+}
 
 
 - (void)dealloc {
