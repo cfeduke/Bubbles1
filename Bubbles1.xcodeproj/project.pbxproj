@@ -18,6 +18,8 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* Bubbles1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* Bubbles1ViewController.m */; };
 		67F48BA1141D299B0081194F /* DeleteGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F48BA0141D299B0081194F /* DeleteGestureRecognizer.m */; };
+		67F48BA4141E6D4F0081194F /* bubble.aif in Resources */ = {isa = PBXBuildFile; fileRef = 67F48BA3141E6D4F0081194F /* bubble.aif */; };
+		67F48BA6141E6EA60081194F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F48BA5141E6EA60081194F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		32CA4F630368D1EE00C91783 /* Bubbles1_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubbles1_Prefix.pch; sourceTree = "<group>"; };
 		67F48B9F141D299B0081194F /* DeleteGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteGestureRecognizer.h; sourceTree = "<group>"; };
 		67F48BA0141D299B0081194F /* DeleteGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteGestureRecognizer.m; sourceTree = "<group>"; };
+		67F48BA3141E6D4F0081194F /* bubble.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bubble.aif; sourceTree = "<group>"; };
+		67F48BA5141E6EA60081194F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Bubbles1-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bubbles1-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F48BA6141E6EA60081194F /* AVFoundation.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +83,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				67F48BA5141E6EA60081194F /* AVFoundation.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -99,6 +105,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				67F48BA3141E6D4F0081194F /* bubble.aif */,
 				074BC359114D6C5900A06A64 /* popped.png */,
 				074BC355114D6C4500A06A64 /* bubble.png */,
 				2899E5210DE3E06400AC0155 /* Bubbles1ViewController.xib */,
@@ -171,6 +178,7 @@
 				2899E5220DE3E06400AC0155 /* Bubbles1ViewController.xib in Resources */,
 				074BC356114D6C4500A06A64 /* bubble.png in Resources */,
 				074BC35A114D6C5900A06A64 /* popped.png in Resources */,
+				67F48BA4141E6D4F0081194F /* bubble.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

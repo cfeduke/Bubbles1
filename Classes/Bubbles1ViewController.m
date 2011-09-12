@@ -51,6 +51,8 @@
     DeleteGestureRecognizer *deleteRecognizer = [[DeleteGestureRecognizer alloc] initWithTarget:self action:@selector(handleDeleteFrom:)];
     [self.view addGestureRecognizer:deleteRecognizer];
     [deleteRecognizer release];
+    
+    [self preparePopSound];
 }
 
 - (void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
@@ -96,6 +98,7 @@
     UIView *hitView = [self.view hitTest:location withEvent:nil];
     if ([hitView isKindOfClass:[UIImageView class]]) {
         [(UIImageView *)hitView setImage:[UIImage imageNamed:@"popped.png"]];
+        [self makePopSound];
     }
     else
     {    
@@ -126,6 +129,20 @@
 
 - (void)dealloc {
     [super dealloc];
+    if (player != nil)
+        [player dealloc];
+}
+
+-(void)preparePopSound {
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/bubble.aif", [[NSBundle mainBundle] resourcePath]]];
+    NSError *error;
+    
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    player.numberOfLoops = 0;
+}
+
+-(void)makePopSound {
+    [player play];
 }
 
 @end

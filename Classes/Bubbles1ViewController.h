@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-// START:recognizerdelegate
-@interface Bubbles1ViewController : UIViewController 
-// START_HIGHLIGHT 
-//					<UIGestureRecognizerDelegate> 
-{
-// END_HIGHLIGHT 
-	
-}
+#import <AVFoundation/AVFoundation.h>
 
+
+@interface Bubbles1ViewController : UIViewController 
+{
+    AVAudioPlayer *player;
+}
+-(void)preparePopSound;
+-(void)makePopSound;
 @end
-// END:recognizerdelegate
+
