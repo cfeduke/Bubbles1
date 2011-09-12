@@ -27,11 +27,14 @@
     UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
     swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeRecognizer];
-    [swipeRecognizer release];
     
     DeleteGestureRecognizer *deleteRecognizer = [[DeleteGestureRecognizer alloc] initWithTarget:self action:@selector(handleDeleteFrom:)];
     [self.view addGestureRecognizer:deleteRecognizer];
+    
+    [swipeRecognizer requireGestureRecognizerToFail:deleteRecognizer];
+    
     [deleteRecognizer release];
+    [swipeRecognizer release];
     
     [self preparePopSound];
 }
@@ -82,8 +85,7 @@
     }
     else
     {    
-        CGRect rect = CGRectMake(location.x - 40, 
-            location.y - 40, 80.0f, 80.0f);
+        CGRect rect = CGRectMake(location.x - 40, location.y - 40, 80.0f, 80.0f);
         UIBubbleImageView *image = [[UIBubbleImageView alloc] initWithFrame:rect];
         
         [self.view addSubview:image];
