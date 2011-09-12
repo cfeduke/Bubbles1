@@ -8,29 +8,10 @@
 
 #import "Bubbles1ViewController.h"
 #import "DeleteGestureRecognizer.h"
+#import "UIBubbleImageView.h"
 
 @implementation Bubbles1ViewController
 
-
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
@@ -91,41 +72,25 @@
 /*
  In response to a tap gesture, show the image view appropriately then make it fade out in place.
  */
-// START:handleTapFrom
 - (void)handleTapFrom:(UITapGestureRecognizer *)recognizer {
 	CGPoint location = [recognizer locationInView:self.view];
 	
     UIView *hitView = [self.view hitTest:location withEvent:nil];
-    if ([hitView isKindOfClass:[UIImageView class]]) {
-        [(UIImageView *)hitView setImage:[UIImage imageNamed:@"popped.png"]];
-        [self makePopSound];
+    if ([hitView isKindOfClass:[UIBubbleImageView class]]) {
+        if ([(UIBubbleImageView *)hitView pop] == YES)
+            [self makePopSound];
     }
     else
     {    
         CGRect rect = CGRectMake(location.x - 40, 
             location.y - 40, 80.0f, 80.0f);
-        UIImageView *image = [[UIImageView alloc] 
-            initWithFrame:rect];
-        [image setImage:[UIImage imageNamed:@"bubble.png"]];
-        [image setUserInteractionEnabled:YES];
-        
-        UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchFrom:)];
-        [image addGestureRecognizer:pinchRecognizer];
-        [pinchRecognizer release];
+        UIBubbleImageView *image = [[UIBubbleImageView alloc] initWithFrame:rect];
         
         [self.view addSubview:image];
         
         [image release];
     }
 }
-// END:handleTapFrom
-
--(void)handlePinchFrom:(UIPinchGestureRecognizer *)recognizer {
-    CGFloat scale = [recognizer scale];
-    CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
-    recognizer.view.transform = transform;
-}
-
 
 - (void)dealloc {
     [super dealloc];

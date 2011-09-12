@@ -20,6 +20,7 @@
 		67F48BA1141D299B0081194F /* DeleteGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F48BA0141D299B0081194F /* DeleteGestureRecognizer.m */; };
 		67F48BA4141E6D4F0081194F /* bubble.aif in Resources */ = {isa = PBXBuildFile; fileRef = 67F48BA3141E6D4F0081194F /* bubble.aif */; };
 		67F48BA6141E6EA60081194F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F48BA5141E6EA60081194F /* AVFoundation.framework */; };
+		67F48BA9141E72600081194F /* UIBubbleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F48BA8141E72600081194F /* UIBubbleImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		67F48BA0141D299B0081194F /* DeleteGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteGestureRecognizer.m; sourceTree = "<group>"; };
 		67F48BA3141E6D4F0081194F /* bubble.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bubble.aif; sourceTree = "<group>"; };
 		67F48BA5141E6EA60081194F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		67F48BA7141E72600081194F /* UIBubbleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleImageView.h; sourceTree = "<group>"; };
+		67F48BA8141E72600081194F /* UIBubbleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleImageView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Bubbles1-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bubbles1-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +71,8 @@
 				28D7ACF70DDB3853001CB0EB /* Bubbles1ViewController.m */,
 				67F48B9F141D299B0081194F /* DeleteGestureRecognizer.h */,
 				67F48BA0141D299B0081194F /* DeleteGestureRecognizer.m */,
+				67F48BA7141E72600081194F /* UIBubbleImageView.h */,
+				67F48BA8141E72600081194F /* UIBubbleImageView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				1D3623260D0F684500981E51 /* Bubbles1AppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* Bubbles1ViewController.m in Sources */,
 				67F48BA1141D299B0081194F /* DeleteGestureRecognizer.m in Sources */,
+				67F48BA9141E72600081194F /* UIBubbleImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
